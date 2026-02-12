@@ -1,0 +1,7 @@
+h-screen - setsthe height of the view port as 100%
+w- screen - sets the width 100% vw(width)
+w-full - takes the remaining width
+transition-all     -  animates the sidebar to appear or dissaper smoothly
+duration-300   - determinies how fast or slow the sidebar should collapse
+rounded-lg(rounded-large)- used to make the button edges or corners smoother 
+px-6        - padding on the x axis
