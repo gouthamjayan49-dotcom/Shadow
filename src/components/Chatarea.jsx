@@ -7,7 +7,7 @@ const Chatarea = () => {
             <div className='flex-1 overflow-y-auto p-6 space-y-4 flex flex-col'>
                 <div className="text-slate-500 text-center mt-20 italic font-light">
                     Secure connection established...
-                </div>
+                </div>      
             </div>
 
             <div className='p-4 bg-slate-900/50 border-t border-slate-800'>
