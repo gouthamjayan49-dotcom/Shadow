@@ -38,8 +38,8 @@ const Sidebar = ({isSidebarOpen})=>{
               {/* The div to include both the unread messages count and final message time */}
               <div className='flex flex-col items-center leading-tight text-xs truncate gap-2'>
                 <p>12:34 pm</p>
-                <div className='bg-emerald-500 text-slate-950 text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center'>
-                      22
+                <div className='bg-blue-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center'>
+                      2
                 </div>
               </div>
             </div>
