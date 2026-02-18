@@ -53,9 +53,9 @@ const Sidebar = ({isSidebarOpen})=>{
 
           {view === 'NewChat' && (
             <>
-            <header className='h-32 border-b bg-slate-900 flex flex-col'>
-              <div className='p-5 gap-3 flex flex-row items-center'>
-                <button onClick={()=>setView('list')}>
+            <header className='h-45 border-b border-slate-800 bg-slate-900 flex flex-col gap-2'>
+              <div className='p-3 gap-3 flex flex-row items-center'>
+                <button className='hover:bg-slate-800 p-2 rounded-full' onClick={()=>setView('list')}>
                   <ArrowLeft size={22} />
                 </button>
                 <h1>
@@ -78,7 +78,41 @@ const Sidebar = ({isSidebarOpen})=>{
                 outline-none border border-transparent focus:border-blue-600/50 transition-all text-sm'
               />
             </div>
+            <div className='p-3 hover:bg-slate-800'>
+              <button className='flex gap-3 p-2'>
+              <UserPlus size={22} />
+              <h1>New Contact</h1>
+              </button>
+              
+
+            </div>
             </header>
+            
+            <div className='flex flex-col flex-1 overflow-hidden w-full h-full overflow-y-auto'>
+            <div className='flex flex-row items-center p-4 border-b h-16 border-slate-800'>
+              {/* Profile icon div */}
+              <div className='w-12 h-12 rounded-full bg-slate-700 shrink-0'>
+                
+      
+              </div>
+
+              {/*The div holding two divs for the Name and the last message */}
+      
+              
+              <div className='flex flex-col flex-1 ml-4 gap-2'>
+                {/* The div for holding the contact name */}
+                <div className='leading-tight truncate'>
+                  <h1>Contact Name</h1>
+                </div>
+                {/* The div for holding the last chat */}
+                <div className='leading-tight truncate'>
+                  <p className='text-xs'>This is the last message</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
 
             
             </>
