@@ -2,17 +2,20 @@ import React from 'react';
 import { MessageSquare,Settings,CircleUser} from 'lucide-react';
 const Navigationrail=()=>{
     return(
-       <aside className='flex flex-col h-screen w-16 border-r border-slate-800 bg-black justify-between overflow-hidden'>
+       <aside className='flex flex-col h-screen w-16 border-r justify-between overflow-hidden'
+       style={{backgroundColor:'var(--bg-nav)', borderColor:'var(--border-ui)'}}>
     {/* TOP SECTION */}
     <div className='flex flex-col gap-8 items-center pt-2'>
-        <div className='p-3 text-blue-600 rounded-2xl cursor-pointer hover:bg-slate-800 transition-colors'>
+        <div className='p-3 rounded-2xl cursor-pointer transition-colors hover:opacity-70'
+        style={{color:'var(--text-primary)'}}>
             <MessageSquare size={24} />
         </div>
     </div>
 
     {/* BOTTOM SECTION */}
     <div className='flex flex-col gap-6 items-center pb-6'>
-        <div className='p-3 text-blue-500 hover:text-white cursor-pointer transition-colors'>
+        <div className='p-3 text-blue-500 hover:opacity-70 cursor-pointer transition-colors'
+        style={{color:'var(--text-primary)'}}>
             <Settings size={24} />
         </div>
         <div className='text-slate-600 hover:text-red-500 cursor-pointer transition-colors'>

@@ -14,7 +14,7 @@ const App = ()=>{
 
       
       <Sidebar isSidebarOpen={isSidebarOpen} />
-      <main className='flex-1 flex flex-col bg-slate-950 relative'>
+      <main className='flex-1 flex flex-col relative'>
         <Header isSidebarOpen={isSidebarOpen} 
         setIsSidebarOpen={setIsSidebarOpen} />
         <Chatarea />

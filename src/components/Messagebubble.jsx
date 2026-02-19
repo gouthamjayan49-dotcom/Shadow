@@ -6,7 +6,7 @@ const Messagebubble=()=>{
         <>
         
         <div className='w-full flex justify-end'>
-            <div className='max-w-[70%] bg-blue-600 p-3 text-white rounded-2xl
+            <div className='max-w-[70%] bg-[#3D5A6E] p-3 text-[#2D1F1A] rounded-2xl
              rounded-tr-none shadow-md'>
                 <p className='text-sm break-words'>
                     This bubble will grow with my text, but it will stop 
@@ -20,10 +20,10 @@ const Messagebubble=()=>{
 
             </div>
 
-        </div>
+        </div> 
         
         <div className='w-full flex justify-start'>
-            <div className='max-w-[70%] bg-slate-800 p-3 text-white rounded-2xl
+            <div className='max-w-[70%] bg-[#EDD9C8] p-3 text-[#2D1F1A] rounded-2xl
             rounded-tl-none shadow-md'>
                 <p className='text-sm break-words'>
                     This is the recipient message section and it is a neutral colour...Both user and recipient messages 

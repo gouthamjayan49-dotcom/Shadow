@@ -1,9 +1,34 @@
 @import "tailwindcss";
 
+
+
 @layer base{
   body{
     margin:0;
     padding:0;
     overflow:hidden;
+    /*Theme styling sections*/
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+
   }
+}
+
+
+:root {
+  /* THEME 1: WHITE THEME */
+  --bg-app: #FFFFFF;
+  --bg-sidebar: #F5F5F5;
+  --bg-item-hover: #EBEBEB;
+  --bg-item-active: #E1E1E1;
+  --bubble-sent: #2F80ED;
+  --bubble-received: #E9E9EB;
+  --text-primary: #1A1A1A;
+  --text-secondary: #8A8A8E;
+  --accent-text: #FFFFFF;
+  --border-ui: #E5E5E5;
+  --scrollbar: #C7C7CC;
+  --bg-nav: #F5F5F5;
+  --bg-input: #EBEBEB;
+  --bg-header: #FFFFFF;
 }

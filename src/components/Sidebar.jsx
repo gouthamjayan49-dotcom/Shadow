@@ -7,22 +7,27 @@ const Sidebar = ({isSidebarOpen})=>{
   const[view,setView]=useState('NewChat');
     return(
         <aside
-       className={`bg-slate-900 border-r border-slate-800 transition-all duration-300 overflow-hidden flex flex-col
+       className={`border-r transition-all duration-300 overflow-hidden flex flex-col
       ${isSidebarOpen ? 'w-100' : 'w-0'}`}
+      style={{backgroundColor:'var(--bg-sidebar)', borderColor:'var(--border-ui)'}}
       >
         {view ==='list' && (
           <>
-        <header className='h-16 border-b flex flex-row px-6 border-slate-800 items-center justify-between'>
+        <header className='h-16 border-b flex flex-row px-6 items-center justify-between text-[#2D1F1A]'
+        style={{borderColor:'var(--border-ui)', color:'var(--text-primary)'}}>
           <h1 className='text-3xl '>SHADOW</h1>
-          <button onClick={()=>setView('NewChat')} className='p-2 hover:bg-slate-800 rounded-lg transition-colors hover:text-white'>
+          <button onClick={()=>setView('NewChat')} 
+          className='p-2 rounded-lg transition-colors hover:opacity-70'>
             <SquarePen size={20} />
           </button>
         </header>
           <div className='flex flex-col flex-1 overflow-hidden w-full h-full overflow-y-auto
             [&::-webkit-scrollbar]:w-1.5
-            [&::-webkit-scrollbar-track]:bg-transparent
-            [&::-webkit-scrollbar-thumb]:bg-slate-700
-            [&::-webkit-scrollbar-thumb]:rounded-full'>
+[&::-webkit-scrollbar-track]:bg-transparent
+[&::-webkit-scrollbar-thumb]:rounded-full'
+style={{
+   scrollbarColor: 'var(--scrollbar) transparent'
+}}>
             <Chatlistitem />
             <Chatlistitem />
             <Chatlistitem />
