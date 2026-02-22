@@ -17,7 +17,7 @@ const App = ()=>{
   document.documentElement.setAttribute('data-theme', theme)
 }, [theme])
 
-const[selectedProfile,setSelectedProfile]=useState(true)
+const[selectedProfile,setSelectedProfile]=useState(false)
 
 
 

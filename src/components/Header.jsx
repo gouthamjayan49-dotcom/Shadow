@@ -6,11 +6,13 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen, selectedProfile,setSelectedPr
     return (
         
         <header className='h-16 border-b flex flex-row items-center px-6 gap-4 cursor-pointer'
-        style={{backgroundColor:'var(--bg-app)', borderColor:'var(--border-ui)'}}>
+        style={{backgroundColor:'var(--bg-app)', borderColor:'var(--border-ui)'}} onClick={()=>{setSelectedProfile(true)}}>
             {selectedProfile === false &&(
                 <>
             <button 
-                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    setIsSidebarOpen(!isSidebarOpen);}}
                 className='p-2 hover:opacity-70 rounded-lg transition-colors'
                 style={{color:'var(--text-primary)'}}
             >
@@ -23,7 +25,10 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen, selectedProfile,setSelectedPr
             {selectedProfile === true &&(
                 <>
                  <button 
-                onClick={() => setSelectedProfile(false)}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    setSelectedProfile(false);
+                }}
                 className='p-2 hover:opacity-70 rounded-lg transition-colors'
                 style={{color:'var(--text-primary)'}}>
                     <ArrowLeft size={22} />

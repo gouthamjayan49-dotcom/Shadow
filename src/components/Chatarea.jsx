@@ -1,9 +1,12 @@
 import React from 'react';
 import Messagebubble from './Messagebubble';
+import Contactprofile from './Contactprofile';
 import { Send, Smile, Paperclip } from 'lucide-react';
 
-const Chatarea = () => {
+const Chatarea = ({selectedProfile}) => {
     return (
+        <>
+        {selectedProfile === false &&(
         <div className='flex-1 flex flex-col h-full overflow-hidden'
         style={{backgroundColor:'var(--bg-app)'}}>
 
@@ -42,6 +45,12 @@ const Chatarea = () => {
                 </div>
             </div>
         </div>
+        )}
+
+        {selectedProfile ===true &&(
+            <Contactprofile selectedProfile={selectedProfile} />
+        )}
+        </>
     );
 };
 
