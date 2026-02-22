@@ -1,12 +1,13 @@
 import React from 'react';
 import Messagebubble from './Messagebubble';
 import Contactprofile from './Contactprofile';
-import { Send, Smile, Paperclip } from 'lucide-react';
+import NewContact from './NewContact';
+import { Send, Smile, Paperclip,ArrowLeft,User,Phone,Check } from 'lucide-react';
 
-const Chatarea = ({selectedProfile}) => {
+const Chatarea = ({ view,setView }) => {
     return (
         <>
-        {selectedProfile === false &&(
+        {view === 'chat' &&(
         <div className='flex-1 flex flex-col h-full overflow-hidden'
         style={{backgroundColor:'var(--bg-app)'}}>
 
@@ -47,8 +48,12 @@ const Chatarea = ({selectedProfile}) => {
         </div>
         )}
 
-        {selectedProfile ===true &&(
-            <Contactprofile selectedProfile={selectedProfile} />
+        {view ==='profile' &&(
+            <Contactprofile />
+        )}
+
+        {view==='edit' &&(
+            <NewContact setView={setView} />
         )}
         </>
     );

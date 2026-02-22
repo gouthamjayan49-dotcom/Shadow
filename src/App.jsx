@@ -5,7 +5,7 @@ import Sidebar from './components/Sidebar';//new line
 import Header from './components/Header';
 import Chatarea from './components/Chatarea';
 import Navigationrail from './components/Navigationrail';
-import Messagebubble from './components/Messagebubble';
+
 
 
 
@@ -17,9 +17,10 @@ const App = ()=>{
   document.documentElement.setAttribute('data-theme', theme)
 }, [theme])
 
-const[selectedProfile,setSelectedProfile]=useState(false)
 
 
+const[view,setView]=useState('chat')
+const [sidebarView, setSidebarView] = useState('list')
 
 
 
@@ -32,13 +33,14 @@ const[selectedProfile,setSelectedProfile]=useState(false)
 
       
       <Sidebar isSidebarOpen={isSidebarOpen}
-      setSelectedProfile={setSelectedProfile} />
+      sidebarView={sidebarView} 
+      setSidebarView={setSidebarView} />
       <main className='flex-1 flex flex-col relative'>
-        <Header isSidebarOpen={isSidebarOpen} 
-        setIsSidebarOpen={setIsSidebarOpen}
-        selectedProfile={selectedProfile}
-        setSelectedProfile={setSelectedProfile} />
-        <Chatarea selectedProfile={selectedProfile} />
+        <Header view={view} 
+        setView={setView}
+        isSidebarOpen={isSidebarOpen} 
+        setIsSidebarOpen={setIsSidebarOpen} />
+        <Chatarea view={view} setView={setView} />
       </main>
 
     </div>

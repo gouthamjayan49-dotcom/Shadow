@@ -1,21 +1,8 @@
 import React from 'react'
-import { ArrowLeft, User, Phone, Check } from 'lucide-react';
-const NewContact = ({setView})=>{
+import { User, Phone, Check } from 'lucide-react';
+const NewContact = ({})=>{
     return(
         <div className='flex flex-col h-full' style={{ backgroundColor: 'var(--bg-app)' }}>
-    {/* Header */}
-    <header className='h-16 border-b flex flex-row px-4 items-center gap-4'
-      style={{ backgroundColor: 'var(--bg-app)', borderColor: 'var(--border-ui)' }}>
-      <button 
-        className='hover:opacity-70 p-2 rounded-full transition-colors' 
-        onClick={() => setView('NewChat')}
-      >
-        <ArrowLeft size={22} style={{ color: 'var(--text-primary)' }} />
-      </button>
-      <h1 className='text-lg font-semibold' style={{ color: 'var(--text-primary)' }}>
-        New Contact
-      </h1>
-    </header>
       
     {/* Form Container */}
     <div className='flex-1 p-6 flex flex-col gap-6'>

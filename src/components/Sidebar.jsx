@@ -4,21 +4,19 @@ import Chatlistitem from './Chatlistitem';
 import Contactslist from './Contactslist';
 import NewContact from './NewContact';
 
-const Sidebar = ({isSidebarOpen})=>{
-  //conditional rendering code
-  const[view,setView]=useState('list');
+const Sidebar = ({isSidebarOpen,sidebarView, setSidebarView})=>{
     return(
         <aside
        className={`border-r transition-all duration-300 overflow-hidden flex flex-col
       ${isSidebarOpen ? 'w-100' : 'w-0'}`}
       style={{backgroundColor:'var(--bg-sidebar)', borderColor:'var(--border-ui)'}}
       >
-        {view ==='list' && (
+        {sidebarView ==='list' && (
           <>
         <header className='h-16 border-b flex flex-row px-6 items-center justify-between text-[#2D1F1A]'
         style={{borderColor:'var(--border-ui)', color:'var(--text-primary)'}}>
           <h1 className='text-3xl '>SHADOW</h1>
-          <button onClick={()=>setView('NewChat')} 
+          <button onClick={()=>setSidebarView('NewChat')} 
           className='p-2 rounded-lg transition-colors hover:opacity-70'>
             <SquarePen size={20} />
           </button>
@@ -49,13 +47,13 @@ style={{
           </>
           )}
 
-          {view === 'NewChat' && (
+          {sidebarView === 'NewChat' && (
             <>
             <header className='h-45 border-b flex flex-col gap-2'
             style={{backgroundColor:'var(--bg-app)', borderColor:'var(--border-ui)'}}>
               <div className='p-3 gap-3 flex flex-row items-center'
               style={{color:'var(--text-primary)'}}>
-                <button className='hover:opacity-70 p-2 rounded-full' onClick={()=>setView('list')}>
+                <button className='hover:opacity-70 p-2 rounded-full' onClick={()=>setSidebarView('list')}>
                   <ArrowLeft size={22} />
                 </button>
                 <h1>
@@ -83,7 +81,7 @@ style={{
             <div className='p-3 hover:opacity-70'>
               <button className='flex gap-3 p-2'
               style={{color:'var(--text-primary)'}}
-              onClick={()=>{setView('NewContact')}}>
+              onClick={()=>{setSidebarView('NewContact')}}>
               <UserPlus size={22} />
               <h1>New Contact</h1>
               </button>
@@ -117,8 +115,20 @@ style={{
             </>
 
           )}
-      {view === 'NewContact' && (
-      <NewContact setView={setView} />
+      {sidebarView === 'NewContact' && (
+      <>
+      <header className='h-16 border-b flex flex-row px-6 items-center gap-4 shrink-0'
+        style={{ backgroundColor: 'var(--bg-app)', borderColor: 'var(--border-ui)' }}>
+            <button className='hover:opacity-70 p-2 rounded-full transition-colors'
+            onClick={() => setSidebarView('NewChat')}>
+                <ArrowLeft size={22} style={{ color: 'var(--text-primary)' }} />
+            </button>
+            <h1 className='text-lg font-semibold' style={{ color: 'var(--text-primary)' }}>
+                New Contact
+            </h1>
+        </header>
+        <NewContact />
+      </>
 )}
       </aside>
     );

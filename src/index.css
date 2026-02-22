@@ -18,7 +18,7 @@
 :root {
   /* THEME 1: WHITE THEME */
   --bg-app: #FFFFFF;
-  --bg-sidebar:#E9E9EB;
+  --bg-sidebar:#ffffff;
   --bg-item-hover: #EBEBEB;
   --bg-item-active: #E1E1E1;
   --bubble-sent: #0A66C2;

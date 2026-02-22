@@ -1,13 +1,13 @@
 import React from 'react';
 import { Menu, X ,Pen,ArrowLeft} from 'lucide-react';
 
-const Header = ({ isSidebarOpen, setIsSidebarOpen, selectedProfile,setSelectedProfile }) => {
+const Header = ({ isSidebarOpen, setIsSidebarOpen,view,setView}) => {
     
     return (
         
         <header className='h-16 border-b flex flex-row items-center px-6 gap-4 cursor-pointer'
-        style={{backgroundColor:'var(--bg-app)', borderColor:'var(--border-ui)'}} onClick={()=>{setSelectedProfile(true)}}>
-            {selectedProfile === false &&(
+        style={{backgroundColor:'var(--bg-app)', borderColor:'var(--border-ui)'}} onClick={()=>{setView('profile')}}>
+            {view === 'chat' &&(
                 <>
             <button 
                 onClick={(e) => {
@@ -22,12 +22,12 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen, selectedProfile,setSelectedPr
             </>
             )}
 
-            {selectedProfile === true &&(
+            {view === 'profile' &&(
                 <>
                  <button 
                 onClick={(e) => {
                     e.stopPropagation();
-                    setSelectedProfile(false);
+                    setView('chat');
                 }}
                 className='p-2 hover:opacity-70 rounded-lg transition-colors'
                 style={{color:'var(--text-primary)'}}>
@@ -37,11 +37,28 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen, selectedProfile,setSelectedPr
                 </button>
                 <h1 className="font-medium text-lg" style={{color:'var(--text-primary)'}}>Contact info</h1>
                 <button className='p-2 hover:opacity-70 rounded-lg transition-colors ml-auto'
-                onClick={()=>{}}>
+                onClick={(e)=>{
+                    e.stopPropagation();
+                    setView('edit')
+                }}>
                     <Pen size={20} />
 
                 </button>
 
+                </>
+            )}
+             {view === 'edit' && (
+                <>
+                    <button 
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            setView('profile');
+                        }}
+                        className='p-2 hover:opacity-70 rounded-lg transition-colors'
+                        style={{color:'var(--text-primary)'}}>
+                        <ArrowLeft size={22} />
+                    </button>
+                    <h1 className="font-medium text-lg" style={{color:'var(--text-primary)'}}>Edit Contact</h1>
                 </>
             )}
         </header>
