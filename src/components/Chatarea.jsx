@@ -1,10 +1,16 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Messagebubble from './Messagebubble';
 import Contactprofile from './Contactprofile';
 import NewContact from './NewContact';
 import { Send, Smile, Paperclip,ArrowLeft,User,Phone,Check } from 'lucide-react';
 
 const Chatarea = ({ view, setView, activeContact, messages, onSendMessage }) => {
+    const[inputText,setInputText]=useState('');
+    const handleSend=()=>{
+        onSendMessage(inputText);
+        setInputText('');
+
+    }
     return (
         <>
         {view === 'chat' &&(
@@ -44,12 +50,15 @@ const Chatarea = ({ view, setView, activeContact, messages, onSendMessage }) => 
                     <Smile size={22} style={{color:'var(--text-secondary)'}} />
                     <input 
                         type="text" 
+                        value={inputText}
+                        onChange={e=>setInputText(e.target.value)}
                         placeholder="Message..." 
                         className='bg-transparent flex-1 outline-none'
                         style={{color:'var(--text-primary)'}}
                     />
                     <Send size={19} className='cursor-pointer'
-                    style={{color:'var(--text-primary)'}} />
+                    style={{color:'var(--text-primary)'}}
+                    onClick={handleSend} />
                 </div>
             </div>
         </div>
