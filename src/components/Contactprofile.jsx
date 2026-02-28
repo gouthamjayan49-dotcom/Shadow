@@ -24,7 +24,7 @@ const Contactprofile = () => {
             <div className='px-10 mt-25 flex flex-col gap-1'>
                 <p className='text-xs font-medium pb-2' style={{ color: 'var(--text-secondary)' }}>About</p>
                 <p className='text-sm' style={{ color: 'var(--text-primary)' }}>
-                    Hey there! I am using Shadow.
+                    Hey there! I am using cipher.
                 </p>
             </div>
 

@@ -15,7 +15,7 @@ const Sidebar = ({isSidebarOpen,sidebarView, setSidebarView,contacts,activeConta
           <>
         <header className='h-16 border-b flex flex-row px-6 items-center justify-between text-[#2D1F1A]'
         style={{borderColor:'var(--border-ui)', color:'var(--text-primary)'}}>
-          <h1 className='text-3xl '>SHADOW</h1>
+          <h1 className='text-3xl '>cipher</h1>
           <button onClick={()=>setSidebarView('NewChat')} 
           className='p-2 rounded-lg transition-colors hover:opacity-70'>
             <SquarePen size={20} />
@@ -118,7 +118,7 @@ style={{
                 New Contact
             </h1>
         </header>
-        <NewContact onAddContact={onAddContact} />
+        <NewContact onAddContact={onAddContact} contacts={contacts} />
       </>
 )}
       </aside>

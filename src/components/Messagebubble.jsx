@@ -14,7 +14,7 @@ const Messagebubble=({message})=>{
         <>
         
         <div className={`w-full flex ${ message.fromMe ? 'justify-end':'justify-start'}`}>
-            <div className={`max-w-[70%] bg-[#3D5A6E] p-3 shadow-md 
+            <div className={`max-w-[70%] bg-[#3D5A6E] p-3 cipher-md 
             ${message.fromMe
             ? 'rounded-2xl rounded-tr-none'
             : 'rounded-2xl rounded-tl-none'

@@ -11,7 +11,7 @@ import Navigationrail from './components/Navigationrail';
 
 
 const initialContacts= [
-  {id:1, name:'Govardhan Gopu', phone:'+91 1234567899', about:'Hey there, Iam using Shadow.', 
+  {id:1, name:'Govardhan Gopu', phone:'+91 1234567899', about:'Hey there, Iam using cipher.', 
     lastMessage:'See you tomorrow',time: '12:34 PM', unread: 2 },
     { id: 2, name: 'Bob Martinez',     phone: '+1 202-555-0182', about: 'Available',                     lastMessage: 'Haha okay 😂',            time: '11:10 AM', unread: 0 },
   { id: 3, name: 'Carol White',      phone: '+44 7700 900123', about: 'Busy – do not disturb',         lastMessage: 'Can we reschedule?',      time: 'Yesterday', unread: 1 },
@@ -105,7 +105,6 @@ const App = ()=>{
     const newEntry ={
       id:Date.now(),
       name:contact.name,
-      phone:contact.phone,
       about:'',
       lastMessage:'',
       time:'',

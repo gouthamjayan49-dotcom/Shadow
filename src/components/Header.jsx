@@ -18,7 +18,7 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen,view,setView}) => {
             >
                 {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
-            <h1 className="font-medium text-lg" style={{color:'var(--text-primary)'}}>Shadow Chat</h1>
+            <h1 className="font-medium text-lg" style={{color:'var(--text-primary)'}}>cipher Chat</h1>
             </>
             )}
 

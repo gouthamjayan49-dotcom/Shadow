@@ -1,129 +1,88 @@
-import React,{useState} from 'react'
-import { User, Phone, Check } from 'lucide-react';
+import React, { useState } from 'react'
+import { Search, User, Check } from 'lucide-react';
+import Contactslist from './Contactslist';
 
+const NewContact = ({ onAddContact,contacts }) => {
 
+  const [username, setUsername] = useState('');
+  const [nickname, setNickname] = useState('');
+  const [isSelected,setIsSelected]=useState(false);
 
-
-const NewContact = ({onAddContact})=>{
-
-  const[firstName,setFirstName]=useState('');
-  const[secondName,setSecondName]=useState('');
-  const[countryCode,setCountryCode]=useState('+91');
-  const[phoneNumber,setPhoneNumber]=useState('');
- 
-  const handleSave=()=>{
-    if(!firstName.trim() || !phoneNumber.trim()){
-      alert('please Enter a name and a phone number!');
+  const handleSave = () => {
+    if (!username.trim()) {
+      alert('Please enter a username!');
       return;
     }
     onAddContact({
-      name:`${firstName} ${secondName}`.trim(),
-      phone:`${countryCode} ${phoneNumber}`
+      name: nickname.trim() || username.trim(),
     });
-    setFirstName('');
-    setSecondName('');
-    setPhoneNumber('');
+    setUsername('');
+    setNickname('');
   };
 
+  const suggestions=contacts.filter(c=>
+    c.name.toLowerCase().includes(username.toLowerCase())
+  );
 
+  return (
+    <div className='flex flex-col h-full' style={{ backgroundColor: 'var(--bg-app)' }}>
+    
 
+        {/* Avatar Placeholder */}
+        <div className="flex justify-center py-4">
+          <div className="p-8 rounded-full" style={{ backgroundColor: 'var(--bg-item-hover)' }}>
+            <User size={48} style={{ color: 'var(--text-secondary)' }} />
+          </div>
+        </div>
 
-
-
-    return(
-        <div className='flex flex-col h-full' style={{ backgroundColor: 'var(--bg-app)' }}>
+        {/* Username Search Bar */}
+        <div className="flex flex-col gap-2 px-5">
+          <p className='text-xs font-medium' style={{ color: 'var(--text-secondary)' }}>
+            Search by username
+          </p>
+          <div className="flex items-center gap-3 rounded-xl px-4 py-3"
+            style={{ backgroundColor: 'var(--bg-item-hover)' }}>
+            <Search size={18} style={{ color: 'var(--text-secondary)' }} />
+            <input
+              type="text"
+              placeholder="@username"
+              value={username}
+              onChange={e => setUsername(e.target.value)}
+              className="outline-none bg-transparent w-full text-sm"
+              style={{ color: 'var(--text-primary)' }}
+            />
       
-    {/* Form Container */}
-    <div className='flex-1 p-6 flex flex-col gap-6'>
-
-      {/* Profile Icon Placeholder */}
-      <div className="flex justify-center py-4">
-        <div className="p-8 rounded-full" style={{ backgroundColor: 'var(--bg-item-hover)' }}>
-          <User size={48} style={{ color: 'var(--text-secondary)' }} />
         </div>
       </div>
 
-      {/* Name Inputs */}
-      <div className="flex flex-col gap-4">
-        <div className="flex items-center gap-3 border-b pb-2" style={{ borderColor: 'var(--border-ui)' }}>
-          <User size={20} style={{ color: 'var(--text-secondary)' }} />
-          <input
-            type="text"
-            placeholder="First Name"
-            value={firstName}
-            onChange={e=>setFirstName(e.target.value)}
-            className="outline-none bg-transparent w-full text-sm"
-            style={{ color: 'var(--text-primary)' }}
-          />
+        <div className='overflow-y-auto flex-1 
+        [&::-webkit-scrollbar]:w-1.5
+            [&::-webkit-scrollbar-track]:bg-transparent
+            [&::-webkit-scrollbar-thumb]:rounded-full'
+            style={{
+            scrollbarColor: 'var(--scrollbar) transparent'
+            }}>
+
+          {suggestions.map(c => (
+          <Contactslist
+          key={c.id}
+          contact={c}
+          onClick={() => {
+        setUsername(c.name);
+        setIsSelected(true);
+      }}
+    />
+  ))}
+
         </div>
-        <div className="flex items-center gap-3 border-b pb-2 ml-8" style={{ borderColor: 'var(--border-ui)' }}>
-          <input
-            type="text"
-            placeholder="Last Name (Optional)"
-            value={secondName}
-            onChange={e=>setSecondName(e.target.value)}
-            className="outline-none bg-transparent w-full text-sm"
-            style={{ color: 'var(--text-primary)' }}
-          />
-        </div>
-      </div>
 
-      {/* Phone Number Input */}
-      <div className="flex items-center gap-3 border-b pb-2" style={{ borderColor: 'var(--border-ui)' }}>
-        <Phone size={20} style={{ color: 'var(--text-secondary)' }} />
-        <select
-        value={countryCode}
-        onChange={e=>setCountryCode(e.target.value)}
-          className="outline-none bg-transparent text-sm pr-1"
-          style={{ color: 'var(--text-primary)' }}
-        >
-          <option value="+1">🇺🇸 +1</option>
-          <option value="+44">🇬🇧 +44</option>
-          <option value="+91">🇮🇳 +91</option>
-          <option value="+33">🇫🇷 +33</option>
-          <option value="+49">🇩🇪 +49</option>
-          <option value="+39">🇮🇹 +39</option>
-          <option value="+34">🇪🇸 +34</option>
-          <option value="+61">🇦🇺 +61</option>
-          <option value="+81">🇯🇵 +81</option>
-          <option value="+86">🇨🇳 +86</option>
-          <option value="+55">🇧🇷 +55</option>
-          <option value="+7">🇷🇺 +7</option>
-          <option value="+971">🇦🇪 +971</option>
-          <option value="+966">🇸🇦 +966</option>
-          <option value="+27">🇿🇦 +27</option>
-          <option value="+20">🇪🇬 +20</option>
-          <option value="+234">🇳🇬 +234</option>
-          <option value="+254">🇰🇪 +254</option>
-          <option value="+92">🇵🇰 +92</option>
-          <option value="+880">🇧🇩 +880</option>
-        </select>
-        <div className="w-px h-4" style={{ backgroundColor: 'var(--border-ui)' }} />
-        <input
-          type="tel"
-          placeholder="Phone Number"
-          value={phoneNumber}
-          onChange={e=>setPhoneNumber(e.target.value)}
-          className="outline-none bg-transparent w-full text-sm"
-          style={{ color: 'var(--text-primary)' }}
-        />
-      </div>
+      
 
-      {/* Tick / Save Button */}
-      <div className="flex justify-end mt-2">
-        <button
-          className="p-3 rounded-full transition-opacity hover:opacity-70"
-          style={{ backgroundColor: 'var(--bg-item-hover)' }}
-          onClick={handleSave}
-        >
-          <Check size={22} style={{ color: 'var(--text-primary)' }} />
-        </button>
-      </div>
+        
 
+      
     </div>
-  </div>
-
-    );
+  );
 }
 
 export default NewContact;
