@@ -1,7 +1,7 @@
 import React from 'react';
 import { User, Trash2, BanIcon } from 'lucide-react';
 
-const Contactprofile = () => {
+const Contactprofile = ({activeContact}) => {
     return (
         <div className='flex-1 flex flex-col h-full overflow-y-auto'
         style={{ backgroundColor: 'var(--bg-app)' }}>
@@ -13,10 +13,10 @@ const Contactprofile = () => {
                     <User size={64} style={{ color: 'var(--text-secondary)' }} />
                 </div>
                 <h1 className='text-2xl font-semibold' style={{ color: 'var(--text-primary)' }}>
-                    Contact Name
+                    {activeContact?.name}
                 </h1>
                 <p className='text-sm' style={{ color: 'var(--text-secondary)' }}>
-                    +91 98765 43210
+                    myusername
                 </p>
             </div>
 

@@ -4,7 +4,7 @@ import Contactprofile from './Contactprofile';
 import NewContact from './NewContact';
 import { Send, Smile, Paperclip,ArrowLeft,User,Phone,Check } from 'lucide-react';
 
-const Chatarea = ({ view, setView, activeContact, messages, onSendMessage }) => {
+const Chatarea = ({ view, setView, activeContact, messages, onSendMessage, }) => {
     const[inputText,setInputText]=useState('');
     const handleSend=()=>{
         onSendMessage(inputText);
@@ -69,7 +69,7 @@ const Chatarea = ({ view, setView, activeContact, messages, onSendMessage }) => 
         )}
 
         {view ==='profile' &&(
-            <Contactprofile />
+            <Contactprofile activeContact={activeContact} />
         )}
 
   {view === 'edit' && (
