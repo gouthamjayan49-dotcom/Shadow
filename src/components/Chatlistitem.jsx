@@ -1,16 +1,18 @@
 import React from 'react'
 
 const Chatlistitem = ({contact, isActive, onClick}) => {
+  const initials = contact.name.split(' ').map(n => n[0]).join('').toUpperCase();
     return(
         <div onClick={onClick} className='flex flex-row items-center p-2 border-b
          cursor-pointer hover:opacity-80 transition-colors'
         style={{borderColor:'var(--border-ui)', backgroundColor: isActive ?
          'var(--bg-item-active)' : 'var(--bg-sidebar)'}}>
               {/* Profile icon div */}
-              <div className='w-12 h-12 rounded-full shrink-0'
+              <div className='w-12 h-12 rounded-full shrink-0 flex items-center justify-center'
               style={{backgroundColor:'var(--bg-item-active)'}}>
-                
-      
+                <span className='text-sm font-semibold' style={{color:'var(--text-primary)'}}>
+                  {initials}
+                </span>
               </div>
 
               {/*The div holding two divs for the Name and the last message */}

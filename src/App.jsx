@@ -10,15 +10,14 @@ import Navigationrail from './components/Navigationrail';
 
 
 
-const initialContacts= [
-  {id:1, name:'Govardhan Gopu', phone:'+91 1234567899', about:'Hey there, Iam using cipher.', 
-    lastMessage:'See you tomorrow',time: '12:34 PM', unread: 2 },
-    { id: 2, name: 'Bob Martinez',     phone: '+1 202-555-0182', about: 'Available',                     lastMessage: 'Haha okay 😂',            time: '11:10 AM', unread: 0 },
-  { id: 3, name: 'Carol White',      phone: '+44 7700 900123', about: 'Busy – do not disturb',         lastMessage: 'Can we reschedule?',      time: 'Yesterday', unread: 1 },
-  { id: 4, name: 'David Lee',        phone: '+91 98765 43210', about: 'Living life one day at a time', lastMessage: 'Sounds good!',            time: 'Yesterday', unread: 0 },
-  { id: 5, name: 'Eva Brown',        phone: '+49 1512 3456789', about: 'Coffee addict ☕',             lastMessage: 'I will send the file now', time: 'Monday',    unread: 3 },
-  { id: 6, name: 'Frank Ocean',      phone: '+1 310-555-0199', about: 'Music is life 🎵',              lastMessage: 'Nice!',                   time: 'Sunday',    unread: 0 },
-  { id: 7, name: 'Grace Kim',        phone: '+82 10-1234-5678', about: '안녕하세요!',                   lastMessage: 'Did you get my message?', time: 'Saturday',  unread: 1 }
+const initialContacts = [
+  { id: 1, name: 'Govardhan Gopu', username: '@govardhan', about: 'Hey there, I am using Cipher Net.', lastMessage: 'See you tomorrow', time: '12:34 PM', unread: 2 },
+  { id: 2, name: 'Bob Martinez', username: '@bobm', about: 'Available', lastMessage: 'Haha okay 😂', time: '11:10 AM', unread: 0 },
+  { id: 3, name: 'Carol White', username: '@carolw', about: 'Busy – do not disturb', lastMessage: 'Can we reschedule?', time: 'Yesterday', unread: 1 },
+  { id: 4, name: 'David Lee', username: '@davidlee', about: 'Living life one day at a time', lastMessage: 'Sounds good!', time: 'Yesterday', unread: 0 },
+  { id: 5, name: 'Eva Brown', username: '@evab', about: 'Coffee addict ☕', lastMessage: 'I will send the file now', time: 'Monday', unread: 3 },
+  { id: 6, name: 'Frank Ocean', username: '@frankocean', about: 'Music is life 🎵', lastMessage: 'Nice!', time: 'Sunday', unread: 0 },
+  { id: 7, name: 'Grace Kim', username: '@gracekim', about: '안녕하세요!', lastMessage: 'Did you get my message?', time: 'Saturday', unread: 1 },
 ]
 
 
@@ -113,15 +112,6 @@ const App = ()=>{
     setContacts(prev=>[newEntry,...prev]);
     setSidebarView('list');
   };
-
-
-
-
-
-
-
-
-
   return(
     <div className='flex h-screen w-screen text-white bg-slate-950 overflow-hidden'>
       <Navigationrail setSidebarView={setSidebarView} />

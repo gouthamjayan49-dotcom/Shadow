@@ -2,6 +2,7 @@ import React from 'react';
 import { User, Trash2, BanIcon } from 'lucide-react';
 
 const Contactprofile = ({activeContact}) => {
+    const initials = activeContact?.name.split(' ').map(n => n[0]).join('').toUpperCase();
     return (
         <div className='flex-1 flex flex-col h-full overflow-y-auto'
         style={{ backgroundColor: 'var(--bg-app)' }}>
@@ -10,13 +11,15 @@ const Contactprofile = ({activeContact}) => {
             <div className='flex flex-col items-center py-10 gap-2'>
                 <div className='w-32 h-32 rounded-full flex items-center justify-center cursor-pointer hover:opacity-80 transition-opacity mb-2'
                 style={{ backgroundColor: 'var(--bg-item-active)' }}>
-                    <User size={64} style={{ color: 'var(--text-secondary)' }} />
+                    <span className='text-4xl font-semibold' style={{ color: 'var(--text-primary)' }}>
+                    {initials}
+                </span>
                 </div>
                 <h1 className='text-2xl font-semibold' style={{ color: 'var(--text-primary)' }}>
                     {activeContact?.name}
                 </h1>
                 <p className='text-sm' style={{ color: 'var(--text-secondary)' }}>
-                    myusername
+                    {activeContact?.username}
                 </p>
             </div>
 
