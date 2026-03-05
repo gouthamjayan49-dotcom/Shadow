@@ -5,6 +5,7 @@ import Sidebar from './components/Sidebar';//new line
 import Header from './components/Header';
 import Chatarea from './components/Chatarea';
 import Navigationrail from './components/Navigationrail';
+import AuthScreen from './components/Authscreen';
 
 
 
@@ -18,6 +19,11 @@ const initialContacts = [
   { id: 5, name: 'Eva Brown', username: '@evab', about: 'Coffee addict ☕', lastMessage: 'I will send the file now', time: 'Monday', unread: 3 },
   { id: 6, name: 'Frank Ocean', username: '@frankocean', about: 'Music is life 🎵', lastMessage: 'Nice!', time: 'Sunday', unread: 0 },
   { id: 7, name: 'Grace Kim', username: '@gracekim', about: '안녕하세요!', lastMessage: 'Did you get my message?', time: 'Saturday', unread: 1 },
+  { id: 8, name: 'Arjun Sharma', username: '@arjuns', about: 'Living in the moment 🌅', lastMessage: 'Let me check and get back', time: 'Friday', unread: 0 },
+{ id: 9, name: 'Zara Ahmed', username: '@zaraah', about: 'Designer by day 🎨', lastMessage: 'Sent you the files!', time: 'Friday', unread: 2 },
+{ id: 10, name: 'Liam Chen', username: '@liamchen', about: 'Code. Sleep. Repeat.', lastMessage: 'That makes sense', time: 'Thursday', unread: 0 },
+{ id: 11, name: 'Sofia Rossi', username: '@sofiar', about: 'Exploring the world 🌍', lastMessage: 'When are you free?', time: 'Thursday', unread: 1 },
+{ id: 12, name: 'Marcus Webb', username: '@marcusw', about: 'Gym rat 💪', lastMessage: 'Absolutely bro', time: 'Wednesday', unread: 0 },
 ]
 
 
@@ -25,7 +31,7 @@ const initialContacts = [
 // Each message has: id, text, fromMe (true = sent by user), time, status ('sent'|'delivered'|'read')
 const initialConversations = {
   1: [
-    { id: 1, text: 'Hey Alice! Are we still on for tomorrow?', fromMe: true,  time: '12:30 PM', status: 'read' },
+    { id: 1, text: 'Hey Gopu! Are we still on for tomorrow?', fromMe: true,  time: '12:30 PM', status: 'read' },
     { id: 2, text: 'Yes of course! Looking forward to it 😊',   fromMe: false, time: '12:32 PM', status: 'read' },
     { id: 3, text: 'See you tomorrow!',                          fromMe: false, time: '12:34 PM', status: 'read' },
   ],
@@ -63,6 +69,8 @@ const App = ()=>{
   
   // conversations: all messages, keyed by contact id
   const [conversations, setConversations] = useState(initialConversations);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleSelectedContact = (contact)=>{
   setActiveContact(contact);
@@ -113,7 +121,10 @@ const App = ()=>{
     setSidebarView('list');
   };
   return(
-    <div className='flex h-screen w-screen text-white bg-slate-950 overflow-hidden'>
+    <>
+    {!isLoggedIn 
+      ? <AuthScreen onLogin={() => setIsLoggedIn(true)} />
+    :<div className='flex h-screen w-screen text-white bg-slate-950 overflow-hidden'>
       <Navigationrail setSidebarView={setSidebarView} />
 
       
@@ -140,6 +151,8 @@ const App = ()=>{
       </main>
 
     </div>
+}
+    </>
 
   );
   
